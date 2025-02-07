@@ -40,7 +40,7 @@ return {
 			javascript = { "biome" },
 			javascriptreact = { "biome" },
 			lua = { "stylua" },
-			markdown = { "prettierd" },
+			markdown = { "prettierd", "markdown-toc" },
 			python = { "ruff_format" },
 			rust = { "rustfmt" },
 			sh = { "shfmt" },
