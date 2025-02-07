@@ -5,6 +5,7 @@ return {
 		"hrsh7th/cmp-nvim-lsp",
 		{ "antosha417/nvim-lsp-file-operations", config = true },
 		{ "folke/neodev.nvim", config = true },
+		"tpope/vim-sleuth",
 	},
 	config = function()
 		local lspconfig = require("lspconfig")
@@ -92,26 +93,7 @@ return {
 			"yamlls",
 		}
 
-		local tabs = {
-			clangd = 2,
-			cssls = 2,
-			html = 2,
-			lua_ls = 2,
-			yamlls = 2,
-		}
-
 		for _, lsp in ipairs(servers) do
-			for name, tab in pairs(tabs) do
-				if lsp == name then
-					local default_attach = on_attach
-					on_attach = function()
-						vim.opt_local.tabstop = tab
-						vim.opt_local.shiftwidth = tab
-						default_attach()
-					end
-					break
-				end
-			end
 			lspconfig[lsp].setup({
 				on_attach = on_attach,
 				capabilities = capabilities,
