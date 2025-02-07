@@ -25,13 +25,13 @@ return {
 			typescript = { "biomejs" },
 			typescriptreact = { "biomejs" },
 			yaml = { "yamllint" },
-			["*"] = { "typos" },
 		}
 
 		local group = vim.api.nvim_create_augroup("__lint__", { clear = true })
 		vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
 			group = group,
 			callback = function()
+				require("lint").try_lint("typos")
 				require("lint").try_lint()
 			end,
 		})
