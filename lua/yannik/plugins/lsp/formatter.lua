@@ -55,7 +55,7 @@ return {
 			if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
 				return
 			end
-			return { async = true, lsp_fallback = true }
+			return { lsp_format = "fallback" }
 		end,
 	},
 	init = function()
