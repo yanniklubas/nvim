@@ -61,6 +61,12 @@ return {
 
 			opts.desc = "[R]e[S]tart the LSP server"
 			keymap("n", "<leader>rs", "<CMD>LspRestart<CR>", opts)
+			if require("lspconfig").util.root_pattern("deno.json", "deno.jsonc")(vim.fn.getcwd()) then
+				if client.name == "ts_ls" then
+					client.stop()
+					return
+				end
+			end
 		end
 
 		-- used to enable autocompletion capabilities
@@ -77,6 +83,7 @@ return {
 			"bashls",
 			"clangd",
 			"cssls",
+			"denols",
 			"docker_compose_language_service",
 			"dockerls",
 			"emmet_language_server",
@@ -89,7 +96,7 @@ return {
 			"tailwindcss",
 			"taplo",
 			"templ",
-			"tsserver",
+			"ts_ls",
 			"yamlls",
 		}
 

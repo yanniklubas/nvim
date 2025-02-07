@@ -22,6 +22,7 @@ return {
 				"bash-language-server",
 				"clangd",
 				"css-lsp",
+				"deno",
 				"docker-compose-language-service",
 				"dockerfile-language-server",
 				"emmet-language-server",
