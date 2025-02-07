@@ -50,7 +50,6 @@ return {
 				"write-good",
 				"yamllint",
 				-- Formatters
-				"beautysh",
 				"clang-format",
 				"gofumpt",
 				"goimports",
