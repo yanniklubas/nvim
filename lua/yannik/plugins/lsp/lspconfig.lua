@@ -6,6 +6,7 @@ return {
 		{ "antosha417/nvim-lsp-file-operations", config = true },
 		{ "folke/neodev.nvim", config = true },
 		"tpope/vim-sleuth",
+		{ "mfussenegger/nvim-jdtls" },
 	},
 	config = function()
 		local lspconfig = require("lspconfig")
@@ -90,6 +91,7 @@ return {
 			"gopls",
 			"html",
 			"htmx",
+			"jdtls",
 			"lua_ls",
 			"pyright",
 			"rust_analyzer",

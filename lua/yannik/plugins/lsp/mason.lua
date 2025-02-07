@@ -29,6 +29,7 @@ return {
 				"gopls",
 				"html-lsp",
 				"htmx-lsp",
+				"jdtls",
 				"lua-language-server",
 				"pyright",
 				"rust-analyzer",
