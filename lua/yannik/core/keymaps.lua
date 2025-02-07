@@ -38,7 +38,7 @@ keymap("n", "<leader>sx", "<cmd>close<CR>", { desc = "E[x]it current [S]plit" })
 
 keymap("n", "<leader>x", "<CMD>!chmod +x %<CR>", { silent = true, desc = "Make the current file e[X]ecutable" })
 
-keymap("n", "<leader><leader>", "<CMD>so<CR>", { desc = "Reload nvim config" })
+keymap("n", "<leader><leader>", "<CMD>so<CR>", { desc = "Source current file" })
 
 -- Register manipulation
 
@@ -49,7 +49,7 @@ keymap("n", "<leader>Y", '"+Y', { desc = "[Y]ank until end of line into system c
 
 keymap(
 	"n",
-	"<leader>s",
+	"<leader>ws",
 	[[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
-	{ desc = "[S]ubstitute word under cursor" }
+	{ desc = "[S]ubstitute [W]ord under cursor" }
 )
