@@ -108,5 +108,35 @@ return {
 				capabilities = capabilities,
 			})
 		end
+		lspconfig["rust_analyzer"].setup({
+			on_attach = function(client, bufnr)
+				vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
+				on_attach(client, bufnr)
+			end,
+			capabilities = capabilities,
+			settings = {
+				["rust-analyzer"] = {
+					imports = {
+						granularity = {
+							group = "module",
+						},
+						prefix = "self",
+					},
+					cargo = {
+						buildScripts = {
+							enable = true,
+						},
+					},
+					procMaro = {
+						enable = true,
+					},
+					check = {
+						enable = true,
+						command = "clippy",
+						features = "all",
+					},
+				},
+			},
+		})
 	end,
 }
