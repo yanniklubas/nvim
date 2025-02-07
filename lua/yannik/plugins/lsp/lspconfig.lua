@@ -26,7 +26,20 @@ return {
 		opts.desc = "Add diagnostic to [Q]uickfix list"
 		keymap("n", "<leader>q", vim.diagnostic.setqflist, opts)
 
-		local on_attach = function(_client, bufnr)
+		-- Workaround for server cancelled the request
+		-- (GitHub: https://github.com/neovim/neovim/issues/30985#issuecomment-2447329525)
+
+		for _, method in ipairs({ "textDocument/diagnostic", "workspace/diagnostic" }) do
+			local default_diagnostic_handler = vim.lsp.handlers[method]
+			vim.lsp.handlers[method] = function(err, result, context, config)
+				if err ~= nil and err.code == -32802 then
+					return
+				end
+				return default_diagnostic_handler(err, result, context, config)
+			end
+		end
+
+		local on_attach = function(client, bufnr)
 			opts.buffer = bufnr
 
 			opts.desc = "[G]o to LSP [R]eferences"
@@ -62,6 +75,7 @@ return {
 
 			opts.desc = "[R]e[S]tart the LSP server"
 			keymap("n", "<leader>rs", "<CMD>LspRestart<CR>", opts)
+
 			if require("lspconfig").util.root_pattern("deno.json", "deno.jsonc")(vim.fn.getcwd()) then
 				if client.name == "ts_ls" then
 					client.stop()
