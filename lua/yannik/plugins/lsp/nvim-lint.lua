@@ -46,5 +46,12 @@ return {
 			'{ "vim" }',
 			"-",
 		}
+		require("lint.linters.yamllint").args = {
+			"-d",
+			'"{extends: default, rules: { document-start: {present: false}}}"',
+			"--format",
+			"parsable",
+			"-",
+		}
 	end,
 }
