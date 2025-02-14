@@ -6,7 +6,7 @@ local opts = {
 	show_file_path = true,
 	icons = {
 		file_icon_default = "",
-		seperator = ">",
+		separator = ">",
 	},
 	exclude_filetype = {
 		"help",
