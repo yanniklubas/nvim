@@ -22,7 +22,7 @@ aucmd("FileType", {
 })
 
 aucmd("TextYankPost", {
-	group = augroup("HighlighYank", {}),
+	group = augroup("HighlightYank", {}),
 	pattern = "*",
 	callback = function()
 		vim.highlight.on_yank({
