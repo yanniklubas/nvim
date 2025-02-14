@@ -12,16 +12,16 @@ return {
 			desc = "[L]SP [F]ormat file",
 		},
 		{
-			"<leader>ldb",
+			"<leader>lfdb",
 			"<CMD>FormatDisable!<CR>",
 			mode = "n",
-			desc = "[D]isable [L]SP format for the current [B]uffer",
+			desc = "[D]isable [L]SP [F]ormat for the current [B]uffer",
 		},
 		{
-			"<leader>ldg",
+			"<leader>lfdg",
 			"<CMD>FormatDisable<CR>",
 			mode = "n",
-			desc = "[D]isable [L]SP format [G]lobally",
+			desc = "[D]isable [L]SP [F]ormat [G]lobally",
 		},
 		{
 			"<leader>le",
