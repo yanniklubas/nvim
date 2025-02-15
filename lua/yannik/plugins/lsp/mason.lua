@@ -58,6 +58,13 @@ return {
 				"shfmt",
 				"stylua",
 				"yamlfmt",
+				--- Debuggers
+				"codelldb",
+				"debugpy",
+				"delve",
+				"java-debug-adapter",
+				"java-test",
+				"js-debug-adapter",
 			},
 		})
 	end,
