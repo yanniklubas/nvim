@@ -199,6 +199,7 @@ return {
 				desc = "[D]ebug [G]o [T]est",
 			},
 		},
+		ft = { "go" },
 	},
 	{
 		"mfussenegger/nvim-dap-python",
@@ -209,6 +210,7 @@ return {
 
 			py_dap.setup(mason_registry.get_package("debugpy"):get_install_path() .. "/venv/bin/python")
 		end,
+		ft = { "python" },
 	},
 	{
 		"julianolf/nvim-dap-lldb",
