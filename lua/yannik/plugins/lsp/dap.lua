@@ -14,6 +14,12 @@ return {
 							return
 						end
 						dap_py.test_method()
+					elseif ft == "rs" then
+						local status_ok, dap_lldb = pcall(require, "nvim-dap-lldb")
+						if not status_ok then
+							return
+						end
+						dap_lldb.debug_test()
 					elseif ft == "go" then
 						local status_ok, dap_go = pcall(require, "dap-go")
 						if not status_ok then
@@ -203,5 +209,11 @@ return {
 
 			py_dap.setup(mason_registry.get_package("debugpy"):get_install_path() .. "/venv/bin/python")
 		end,
+	},
+	{
+		"julianolf/nvim-dap-lldb",
+		dependencies = { "mfussenegger/nvim-dap" },
+		config = true,
+		ft = { "rust" },
 	},
 }
