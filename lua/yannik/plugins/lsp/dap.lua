@@ -49,6 +49,7 @@ return {
 				"<leader>dx",
 				function()
 					require("dap").close()
+					require("dapui").close()
 				end,
 				mode = { "n" },
 				desc = "[D]ebugger e[X]it",
